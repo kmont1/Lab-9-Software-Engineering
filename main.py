@@ -8,6 +8,13 @@ def encode(password): # Encode Password Function
         encoded_pass += encoded_digit
     return encoded_pass # Returns Encoded Password
 
+def decode(password):
+    decodedpassword=""
+    for digit in password: #iterates through each digit, subtracting each by 3
+        decoded_digit = str((int(digit) - 3) % 10) #applies floor of 10
+        decodedpassword += decoded_digit
+    return decodedpassword  # Returns Encoded Password
+
 if __name__ == "__main__":
     while True:
         print("Menu\n-------------"
@@ -18,6 +25,7 @@ if __name__ == "__main__":
             password = encode(password)
             print(f"Your encoded password is {password}")
         elif option == 2:
-            pass
+            decodedpassword=decode(password)
+            print(f"The encoded password is {password}, and the original password is {decodedpassword}")
         elif option == 3:
             exit()
